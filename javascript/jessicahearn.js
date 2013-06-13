@@ -70,6 +70,24 @@ $(function() {
 	
 	
 	
+	
+	
+	//Expanded Lightbox TEST CASE
+	//(work in progress...)
+	/*$(".gallery-image").click(
+		function() {
+			$(".box").show();
+		}
+	);
+	$(".close").click(
+		function() {
+			$(".box").hide();
+		}
+	);*/
+	
+	
+	
+	
 	//Mobile CSS
 	mobileAdjustments = function() {
 		if (screen && screen.width < 640) {

@@ -258,6 +258,44 @@ a:hover {
 }
 
 
+/*Expanded Lightbox TEST CASE*/ 
+/*(work in progress...)*/
+/*.box {
+	display: none;
+	position: fixed;
+	top: 5%;
+	left: 5%;
+	z-index: 100;
+	max-height: 90%;
+	width: 90%;
+	padding: 20px;
+	background-color: #EEE;
+	border: 5px solid black;
+}
+
+.box p {
+	width: 100%;
+}
+
+.main-image {
+	max-width: 100%;
+	max-height: 75%;
+	float: left;
+	margin: 0px auto;
+}
+
+.details {
+	
+}
+
+.raw-image {
+	height: 100px;
+	float: left;
+	margin: 0px 20px 20px 0px;
+}*/
+/*END TEST*/
+
+
 
 
 
