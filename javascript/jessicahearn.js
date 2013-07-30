@@ -3,7 +3,7 @@
 
 $(function() {
 		
-	
+	/*alert($("#professional .lightbox").length);*/
 	
 	//Centers gallery images in gallery boxes
 	$(".gallery-image").load(function(){
@@ -41,22 +41,29 @@ $(function() {
 	
 	//Restricts lightbox to non-mobile version of the site
 	if (screen && screen.width > 640) {
+	
+		//Function that sizes/resizes lightbox when called
+		function lightboxSizing(displayItem) {
+			displayItem.css("top", function(){
+				return ($(window).height() * .5) - ($(this).height() * .5)
+			});
+			displayItem.css("left", function(){
+				return ($(window).width() * .5) - ($(this).width() * .53)
+			});
+		}
 		
 		//Fades in lightbox, sizes image to window, and sets lightboxIndex
 		$(".gallery-image").click(
 			function() {
 				$(".lightbox").hide();
 				$(this).siblings(".lightbox").fadeIn();
-				$(this).siblings(".lightbox").css("top", function(){
-					return ($(window).height() * .5) - ($(this).height() * .5)
-				});
-				$(this).siblings(".lightbox").css("left", function(){
-					return ($(window).width() * .5) - ($(this).width() * .53)
-				});
+				lightboxSizing($(this).siblings(".lightbox"));
+				
 				$("#lightbox-shade").fadeIn();
 				$(".lightbox-nav").fadeIn();
 				lightboxIndex = $(this).siblings(".lightbox").index(".lightbox");
-				alert(lightboxIndex);
+				/*alert(lightboxIndex);*/
+				/*alert($(this).siblings(".lightbox").index("#personal .lightbox"));*/
 			}
 		);
 		
@@ -70,42 +77,45 @@ $(function() {
 		
 		//Makes lightbox responsive to window resize
 		$(window).resize(function() {
-			$(".lightbox").css("top", function(){
-				return ($(window).height() * .5) - ($(this).height() * .5)
-			});
-			$(".lightbox").css("left", function(){
-				return ($(window).width() * .5) - ($(this).width() * .53)
-			});
+			lightboxSizing($(".lightbox"));
 		});
 		
 		//Lightbox navigation
-		$("#lightbox-nav-left").click(function() {
+		function lightboxPaging(toIndex) {
 			$(".lightbox").hide();
+			$(".lightbox").eq(toIndex).show();
+			lightboxSizing($(".lightbox").eq(toIndex));
+		}
+		
+		
+		$("#lightbox-nav-left").click(function() {
+			lightboxPaging(lightboxIndex - 1);
+			
+			/*$(".lightbox").hide();
 			$(".lightbox").eq(lightboxIndex - 1).show();
-			$(".lightbox").eq(lightboxIndex - 1).css("top", function(){
-				return ($(window).height() * .5) - ($(this).height() * .5)
-			});
-			$(".lightbox").eq(lightboxIndex - 1).css("left", function(){
-				return ($(window).width() * .5) - ($(this).width() * .53)
-			});
-			if (lightboxIndex > 0) {
-				lightboxIndex--
+			lightboxSizing($(".lightbox").eq(lightboxIndex - 1));*/
+			
+			lightboxIndex--
+			if ((lightboxIndex == 0) || (lightboxIndex == ($("#professional .lightbox").length))) {
+				$("#lightbox-nav-left").hide();
 			}
-			else {
-				alert("Zero");
-			}
+			/*else if (lightboxIndex == 0) {
+				$("#lightbox-nav-left").hide();
+			}*/
 		});
 		
 		$("#lightbox-nav-right").click(function() {
-			$(".lightbox").hide();
+		
+			lightboxPaging(lightboxIndex + 1);
+			
+			/*$(".lightbox").hide();
 			$(".lightbox").eq(lightboxIndex + 1).show();
-			$(".lightbox").eq(lightboxIndex + 1).css("top", function(){
-				return ($(window).height() * .5) - ($(this).height() * .5)
-			});
-			$(".lightbox").eq(lightboxIndex + 1).css("left", function(){
-				return ($(window).width() * .5) - ($(this).width() * .53)
-			});
+			lightboxSizing($(".lightbox").eq(lightboxIndex + 1));*/
+			
 			lightboxIndex++
+			if ((lightboxIndex == ($("#professional .lightbox").length - 1)) || (lightboxIndex == ($(".lightbox").length - 1))) {
+				$("#lightbox-nav-right").hide();
+			}
 		});
 	}
 	
