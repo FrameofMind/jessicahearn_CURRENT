@@ -257,6 +257,25 @@ a:hover {
 	display: none;
 }
 
+.lightbox-nav {
+	position: fixed;
+	height: 50px;
+	width: 50px;
+	background: blue;
+	display: none;
+	z-index: 200;
+}
+
+#lightbox-nav-left {
+	top: 50%;
+	left: 0px;
+}
+
+#lightbox-nav-right {
+	top: 50%;
+	right: 0px;
+}
+
 
 /*Expanded Lightbox TEST CASE*/ 
 /*(work in progress...)*/

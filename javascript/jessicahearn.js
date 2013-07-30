@@ -36,8 +36,13 @@ $(function() {
 	
 	
 	
-	//Lightbox
+	//LIGHTBOX
+	var lightboxIndex = 0;
+	
+	//Restricts lightbox to non-mobile version of the site
 	if (screen && screen.width > 640) {
+		
+		//Fades in lightbox, sizes image to window, and sets lightboxIndex
 		$(".gallery-image").click(
 			function() {
 				$(".lightbox").hide();
@@ -49,14 +54,21 @@ $(function() {
 					return ($(window).width() * .5) - ($(this).width() * .53)
 				});
 				$("#lightbox-shade").fadeIn();
+				$(".lightbox-nav").fadeIn();
+				lightboxIndex = $(this).siblings(".lightbox").index(".lightbox");
+				alert(lightboxIndex);
 			}
 		);
 		
-		$(".lightbox").click(function() {
+		//Closes lightbox and resets lightboxIndex to 0
+		$(".lightbox,#lightbox-shade").click(function() {
 			$(".lightbox").fadeOut();
 			$("#lightbox-shade").fadeOut();
+			$(".lightbox-nav").fadeOut();
+			lightboxIndex = 0;
 		});
 		
+		//Makes lightbox responsive to window resize
 		$(window).resize(function() {
 			$(".lightbox").css("top", function(){
 				return ($(window).height() * .5) - ($(this).height() * .5)
@@ -64,6 +76,36 @@ $(function() {
 			$(".lightbox").css("left", function(){
 				return ($(window).width() * .5) - ($(this).width() * .53)
 			});
+		});
+		
+		//Lightbox navigation
+		$("#lightbox-nav-left").click(function() {
+			$(".lightbox").hide();
+			$(".lightbox").eq(lightboxIndex - 1).show();
+			$(".lightbox").eq(lightboxIndex - 1).css("top", function(){
+				return ($(window).height() * .5) - ($(this).height() * .5)
+			});
+			$(".lightbox").eq(lightboxIndex - 1).css("left", function(){
+				return ($(window).width() * .5) - ($(this).width() * .53)
+			});
+			if (lightboxIndex > 0) {
+				lightboxIndex--
+			}
+			else {
+				alert("Zero");
+			}
+		});
+		
+		$("#lightbox-nav-right").click(function() {
+			$(".lightbox").hide();
+			$(".lightbox").eq(lightboxIndex + 1).show();
+			$(".lightbox").eq(lightboxIndex + 1).css("top", function(){
+				return ($(window).height() * .5) - ($(this).height() * .5)
+			});
+			$(".lightbox").eq(lightboxIndex + 1).css("left", function(){
+				return ($(window).width() * .5) - ($(this).width() * .53)
+			});
+			lightboxIndex++
 		});
 	}
 	
