@@ -3,7 +3,7 @@
 
 $(function() {
 		
-	/*alert($("#professional .lightbox").length);*/
+	
 	
 	//Centers gallery images in gallery boxes
 	$(".gallery-image").load(function(){
@@ -36,6 +36,13 @@ $(function() {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	//LIGHTBOX
 	var lightboxIndex = 0;
 	
@@ -62,8 +69,6 @@ $(function() {
 				$("#lightbox-shade").fadeIn();
 				$(".lightbox-nav").fadeIn();
 				lightboxIndex = $(this).siblings(".lightbox").index(".lightbox");
-				/*alert(lightboxIndex);*/
-				/*alert($(this).siblings(".lightbox").index("#personal .lightbox"));*/
 			}
 		);
 		
@@ -87,37 +92,38 @@ $(function() {
 			lightboxSizing($(".lightbox").eq(toIndex));
 		}
 		
-		
 		$("#lightbox-nav-left").click(function() {
 			lightboxPaging(lightboxIndex - 1);
-			
-			/*$(".lightbox").hide();
-			$(".lightbox").eq(lightboxIndex - 1).show();
-			lightboxSizing($(".lightbox").eq(lightboxIndex - 1));*/
-			
 			lightboxIndex--
 			if ((lightboxIndex == 0) || (lightboxIndex == ($("#professional .lightbox").length))) {
 				$("#lightbox-nav-left").hide();
 			}
-			/*else if (lightboxIndex == 0) {
-				$("#lightbox-nav-left").hide();
-			}*/
+			else {
+				$(".lightbox-nav").show();
+			}
 		});
 		
 		$("#lightbox-nav-right").click(function() {
-		
 			lightboxPaging(lightboxIndex + 1);
-			
-			/*$(".lightbox").hide();
-			$(".lightbox").eq(lightboxIndex + 1).show();
-			lightboxSizing($(".lightbox").eq(lightboxIndex + 1));*/
-			
 			lightboxIndex++
 			if ((lightboxIndex == ($("#professional .lightbox").length - 1)) || (lightboxIndex == ($(".lightbox").length - 1))) {
 				$("#lightbox-nav-right").hide();
 			}
+			else {
+				$(".lightbox-nav").show();
+			}
 		});
-	}
+		
+		//Fades lightbox paging arrows to opaque on hover
+		$(".lightbox-nav img").hover(
+			function() {
+				$(this).fadeTo(600, 1);
+			},
+			function() {
+				$(this).fadeTo(600, 0.5);
+			}
+		);
+	}//END LIGHTBOX FUNCTIONS
 	
 	
 	
@@ -136,6 +142,13 @@ $(function() {
 			$(".box").hide();
 		}
 	);*/
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -173,17 +186,7 @@ $(function() {
 	mobileAdjustments();
 	
 	
-	//The mobile settings break when I add a resize component. Play with this later...
-	/*$(window).resize(function() {			
-		if ($(window).width() < $(window).height()) {
-			$(".gallery-box").width("100%");
-			$(".gallery-box").height($(".gallery-box").width() * .6)
-		}
-		else {
-			$(".gallery-box").height($(window).height() * .8);
-			$(".gallery-box").width($(".gallery-box").height() * 1.88)
-		}		
-	});*/	
+	
 	
 
 

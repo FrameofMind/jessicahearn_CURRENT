@@ -259,21 +259,27 @@ a:hover {
 
 .lightbox-nav {
 	position: fixed;
-	height: 50px;
-	width: 50px;
-	background: blue;
+	height: 100px;
+	width: 100px;
 	display: none;
 	z-index: 200;
+	cursor: pointer;
+}
+
+.lightbox-nav img {
+	opacity: 0.5;
 }
 
 #lightbox-nav-left {
 	top: 50%;
 	left: 0px;
+	/*background-image: url("images/l-arrow.png");*/
 }
 
 #lightbox-nav-right {
 	top: 50%;
 	right: 0px;
+	/*background-image: url("images/r-arrow.png");*/
 }
 
 
