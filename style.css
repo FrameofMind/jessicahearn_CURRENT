@@ -1,0 +1,376 @@
+@charset "UTF-8";
+
+/*  :::::::::::::::::::::::::::::::::::::::::::
+    RESET (Eric Meyer's)
+    http://meyerweb.com/eric/tools/css/reset/
+    v2.0 | 20110126
+    :::::::::::::::::::::::::::::::::::::::::::
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*  :::::::::::::::::::::::::::::
+    PRIMARY STYLES
+    (Begin your styles below...)
+    ::::::::::::::::::::::::::::
+*/
+
+
+
+
+
+
+
+
+
+/*---GLOBAL---*/
+* { 
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+html {
+	overflow-y: scroll;
+	background: #EEE;
+	color: #b8b8b8;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: calibri, sans-serif;
+	line-height: 1.5em;
+	font-size: 16px;
+	height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "century gothic", calibri, sans-serif;
+	margin-bottom: 20px;
+}
+
+p {
+	width: 50%;
+	margin-bottom: 1.3em;
+}
+
+a {
+	text-decoration: none;
+	color: #143b7c;
+}
+
+a:hover {
+	color: #b8b8b8;
+}
+
+#pagewrapper {
+	padding: 0px 50px 0px 50px;
+	max-width: 1300px;
+	/*min-width: 950px;*/
+	margin: 0px auto;
+	background: white;
+	min-height: 100%;
+}
+
+.spacer-div {
+	display: block;
+	clear: both;
+}
+
+#pagewrapper, .site-header, .home, .design-gallery, .gallery-section, .gallery {
+	clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*---HEADER---*/
+.site-header {
+	margin: 0px 0px 100px 0px;
+}
+
+#logo {
+	width: 300px;
+	float: left;
+	margin-top: -23px;
+}
+
+.contact {
+	width: auto;
+	margin: 0px;
+	font-size: 80%;
+	text-align: right;
+}
+
+.contact a {
+	color: #b8b8b8;
+}
+
+.contact a:hover {
+	color: black;
+}
+
+.main-nav {
+	border-top: 1px solid black;
+	width: auto;
+	max-width: 100%;
+	float: right;
+	margin-top: 10px;
+	font-family: "century gothic", calibri, sans-serif;
+}
+
+.main-nav li {
+	float: left;
+	padding: 0px 20px 0px 20px;
+	cursor: pointer;
+}
+
+.main-nav li:hover {
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---CONTENT---*/
+
+.home {
+	margin-bottom: 150px;
+}
+
+
+
+/*---gallery---*/
+.design-gallery h1 {
+	font-size: 150%;
+	padding-top: 20px;
+}
+
+.design-gallery ul li p {
+	padding-left: 20px;
+	font-size: 90%;
+}
+
+.gallery-section {
+	margin-bottom: 100px;
+}
+
+.gallery {
+	margin-bottom: 60px;
+}
+
+.gallery-box {
+	background: #EEE;
+	height: 220px;
+	width: 380px;
+	margin: 10px;
+	padding: 10px;
+	float: left;
+}
+
+.gallery-image {
+	height: 100%;
+	cursor: pointer;
+}
+
+.gallery-image:hover {
+	box-shadow: 4px 4px 4px #DDD;
+}
+
+
+
+/*---lightbox---*/
+.lightbox {
+	position: fixed;
+	max-height: 90%;
+	max-width: 90%;
+	z-index: 100;
+	display: none;
+	padding: 20px;
+	background-color: #EEE;
+	background-image: url('images/x.png');
+	background-repeat: no-repeat;
+	background-position: right top;
+	box-shadow: 5px 5px 5px #222;
+	cursor: pointer;
+}
+
+#lightbox-shade {
+	position: fixed;
+	z-index: 90;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.8;
+	display: none;
+}
+
+.lightbox-nav {
+	position: fixed;
+	height: 100px;
+	width: 100px;
+	display: none;
+	z-index: 200;
+	cursor: pointer;
+}
+
+.lightbox-nav img {
+	opacity: 0.5;
+}
+
+#lightbox-nav-left {
+	top: 50%;
+	left: 0px;
+}
+
+#lightbox-nav-right {
+	top: 50%;
+	right: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---FOOTER---*/
+.site-footer {
+	padding: 50px 0px 20px 0px;
+}
+
+.site-footer p {
+	margin: 0px auto;
+	text-align: center;
+	font-size: 80%;
+	color: #DDD;
+}
+
+
+
+
+
+@media (max-width: 640px) {
+	#pagewrapper{
+		padding: 20px;
+	}
+	.contact {
+		line-height: 1.2em;
+	}
+	.contact-item {
+		display: block;
+	}
+	.divider {
+		display: none;
+	}
+	#logo {
+		width: 100%;
+		margin: 30px 0px;
+	}
+	.main-nav {
+		border-bottom: 1px solid black;
+	}
+	.main-nav li {
+		float: none;
+		text-align: right;
+		padding: 10px 0px;
+	}
+	.home h1 {
+		font-style: italic;
+	}
+
+}
+
+
+
+@media (max-width: 915px) {
+	
+	
+	.gallery-box {
+		width: 100%;
+		height: auto;
+		margin: 10px 0px;
+	}
+	
+	.gallery-image {
+		width: 100%;
+		height: auto;
+	}
+}
+
+@media (max-width: 1315px) {
+	#pagewrapper {
+		max-width: 900px;
+	}
+	
+	p {
+		width: 100%;
+	}
+}
